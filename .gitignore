@@ -11,6 +11,7 @@
 # production
 /build
 /Questionaire
+Questionaire
 
 # misc
 .DS_Store
