@@ -12,10 +12,10 @@ function Header() {
 
   const logout = async () => {
     dispatch({ type: "LOGOUT" });
-    localStorage.removeItem(" user ");
-    const { data } = await axios.post("/api/logout");
+    window.localStorage.removeItem(" user ");
+    const { data } = await axios.post(`http://localhost:8000/api/logout`);
     toast(data.message);
-    history.push("/");
+    history.push("/signin");
   };
 
   return (
@@ -42,11 +42,7 @@ function Header() {
 
           {user !== null && (
             <>
-              <div onClick={logout}>
-                <button className="border border-blue-300 text-blue-500 py-2 px-2 rounded-md text-md">
-                  LOGOUT
-                </button>
-              </div>
+              <div className="text-gray-500 font-bold">{user && user.name}</div>
             </>
           )}
         </div>

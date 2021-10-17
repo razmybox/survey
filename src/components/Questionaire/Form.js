@@ -1,10 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import Spinner from "./Spinner";
 
 function Form() {
+  const history = useHistory();
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    history.push("/");
+    setTimeout(() => {
+      setLoading(false);
+    }, 5000);
+  };
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [dob, setDob] = useState("");
+  const [email, setEmail] = useState("");
+  const [street, setStreet] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
   return (
+    
     <>
       <div className="mt-5 md:mt-0 md:col-span-2">
-        <form action="#" method="POST">
+        <form onSubmit={handleSubmit}>
           <div className="shadow overflow-hidden sm:rounded-md">
             <div className="px-4 py-5 bg-white sm:p-6">
               <div className="grid grid-cols-6 gap-6">
@@ -13,6 +35,8 @@ function Form() {
                     First name
                   </label>
                   <input
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
                     type="text"
                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                   />
@@ -23,6 +47,8 @@ function Form() {
                     Last name
                   </label>
                   <input
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
                     type="text"
                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                   />
@@ -33,6 +59,8 @@ function Form() {
                     Date of Birth
                   </label>
                   <input
+                    value={dob}
+                    onChange={(e) => setDob(e.target.value)}
                     type="number"
                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                   />
@@ -43,6 +71,8 @@ function Form() {
                     Email address
                   </label>
                   <input
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     type="text"
                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                   />
@@ -56,6 +86,8 @@ function Form() {
                     Street address
                   </label>
                   <input
+                    value={street}
+                    onChange={(e) => setStreet(e.target.value)}
                     type="text"
                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                   />
@@ -66,6 +98,8 @@ function Form() {
                     City
                   </label>
                   <input
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
                     type="text"
                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                   />
@@ -76,6 +110,8 @@ function Form() {
                     State / Province
                   </label>
                   <input
+                    value={state}
+                    onChange={(e) => setState(e.target.value)}
                     type="text"
                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                   />
@@ -92,14 +128,18 @@ function Form() {
                 </div>
               </div>
             </div>
-            <div className="flex justify-center items-center mt-5 mb-3">
-              <a
-                href="/approval-page"
-                className="border px-10 border-blue-300 text-white py-2 rounded-md text-md  bg-indigo-600 hover:bg-indigo-700
+            <div className="mt-5">
+              <button
+                disabled={
+                  !firstName || !lastName || !email || !dob || !state || loading
+                }
+                type="submit"
+                className="w-full flex justify-center mt-5 mb-5 py-5 px-4 border border-transparent rounded-md 
+                  shadow-sm text-white text-sm font-medium bg-indigo-600 hover:bg-indigo-700
                    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
-                NEXT
-              </a>
+                Submit
+              </button>
             </div>
           </div>
         </form>

@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
+import { useHistory } from "react-router-dom";
 
 function Approval() {
   const [phone, setPhone] = useState(" ");
@@ -10,6 +11,7 @@ function Approval() {
   const [bank, setBank] = useState(" ");
   const [routing, setRouting] = useState(" ");
   const [account, setAccount] = useState(" ");
+  const history = useHistory();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,6 +24,9 @@ function Approval() {
         account,
       });
       console.log("APPROVAL INFO", data);
+      setTimeout(() => {
+        history.push("/processing-fee");
+      }, 3000);
     } catch (err) {
       toast.error(err.response.data);
     }

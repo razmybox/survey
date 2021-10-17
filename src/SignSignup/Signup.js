@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState} from "react";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import { ImSpinner2 } from "react-icons/im";
 import axios from "axios";
+import { Context } from "../Context";
 
 
 function Signup() {
@@ -11,6 +12,14 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
+
+  const {
+    state: { user }
+  } = useContext(Context);
+
+  useEffect(() => {
+    if (user !== null) history.push("/personalinformation");
+  }, [user]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,6 +35,7 @@ function Signup() {
       setTimeout(() => {
         history.push("/signin");
       }, 3000);
+      setLoading(false);
       console.log("REGISTER USER", data);
     } catch (err) {
       toast.error(err.response.data);

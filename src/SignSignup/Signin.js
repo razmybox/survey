@@ -10,15 +10,16 @@ function Signin() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState();
 
-  const { state, dispatch } = useContext(Context);
-  const {user} = state
+  const {
+    state: { user },
+    dispatch,
+  } = useContext(Context);
 
-  const history = useHistory()
+  const history = useHistory();
 
   useEffect(() => {
-    if(user !== null ) history.push('/personalinformation')
-  }, [user])
-
+    if (user !== null) history.push("/personalinformation");
+  }, [user]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -33,8 +34,9 @@ function Signin() {
       dispatch({ type: "LOGIN", payload: data });
 
       //save in local storage
-      localStorage.setItem('user', JSON.stringify(data))
-      history.push('/personalinformation')
+      localStorage.setItem("user", JSON.stringify(data));
+      history.push("/personalinformation");
+      setLoading(false);
     } catch (err) {
       toast.error(err.message);
       setLoading(false);

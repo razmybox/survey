@@ -1,6 +1,15 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 function Thankpage() {
+
+  const history = useHistory();
+
+  const handleSubmit = () => {
+    setTimeout(() => {
+      history.push("/");
+    }, 2000);
+  };
   return (
     <>
       <div className="">
@@ -10,16 +19,15 @@ function Thankpage() {
 
         <div className="px-6">
           <h1 className="font-bold items-center justify-center flex py-2">
-            Please check out this survey
+         Thank you for taking this survey
           </h1>
-          <p className="items-center justify-center flex">
-            There's no point creating another class for a nav component when
-            after all that will be the only component with those classes. It
-          </p>
+         
         </div>
 
         <div className="flex justify-center items-center mt-5">
-          <button className="border border-blue-300 text-blue-500 py-2 px-2 rounded-md text-md">
+          <button 
+          onClick={handleSubmit}
+          className="border border-blue-300 text-blue-500 py-2 px-2 rounded-md text-md">
             Home Page
           </button>
         </div>

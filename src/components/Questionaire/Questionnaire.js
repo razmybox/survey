@@ -1,6 +1,14 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 function Questionnaire() {
+  const history = useHistory();
+
+  const handleSubmit = () => {
+    setTimeout(() => {
+      history.push("/individual-information");
+    }, 1500);
+  };
   return (
     <>
       <div className="py-4 px-2">
@@ -133,9 +141,16 @@ function Questionnaire() {
           </div>
         </div>
 
-        <div className="flex  justify-center items-center mt-8">
-            <a href="/individual-information" className="border px-10 border-blue-300 text-white py-2 rounded-md text-md  bg-indigo-600 hover:bg-indigo-700
-                   focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">NEXT</a>
+        <div className="mt-5">
+          <button
+            onClick={handleSubmit}
+            type="submit"
+            className="w-full flex justify-center mt-5 py-2 px-4 border border-transparent rounded-md 
+                  shadow-sm text-white text-sm font-medium bg-indigo-600 hover:bg-indigo-700
+                   focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            Submit
+          </button>
         </div>
       </div>
     </>

@@ -17,18 +17,10 @@ import Signup from "./SignSignup/Signup";
 function App() {
   return (
     <Router>
-         <Header />
+      <Header />
       <Switch>
-     
-        <Route exact path="/">
-          <InfoSec />
-          <Card />
-          <Footer />
-        </Route>
-
         <Route path="/signup">
           <ToastContainer position="top-center" />
-
           <Signup />
         </Route>
 
@@ -60,6 +52,12 @@ function App() {
 
         <Route path="/final-page">
           <Thankpage />
+        </Route>
+
+        <Route exact path="/">
+          <InfoSec />
+          <Card />
+          <Footer />
         </Route>
       </Switch>
     </Router>
