@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ImSpinner2 } from "react-icons/im";
+import Spinner from "./Spinner";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
@@ -9,7 +9,7 @@ function Personal() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true)
+    setLoading(true);
     try {
       const { data } = await axios.post(`http://localhost:8000/api/personal`, {
         firstName,
@@ -21,12 +21,13 @@ function Personal() {
         state,
       });
       setTimeout(() => {
+        <Spinner />;
         history.push("/approval-page");
       }, 5000);
       setLoading(false);
       console.log("PERSONAL-INFO", data);
     } catch (err) {
-    setLoading(false)
+      setLoading(false);
     }
   };
 
@@ -147,9 +148,7 @@ function Personal() {
                    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 disabled={!firstName || !street || !lastName || !state || !dob}
               >
-             {
-                 loading ? < ImSpinner2  className="animate-spin h-5 w-5 mr-3 ..."/> : "submit"
-             }
+                Submit
               </button>
             </div>
           </form>
