@@ -71,6 +71,19 @@ function Approval() {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700">
+                  Phone
+                </label>
+                <div className="mt-1">
+                  <PhoneInput
+                    defaultCountry="US"
+                    value={phone}
+                    onChange={setPhone}
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700">
                   Bank
                 </label>
                 <div className="mt-1">
@@ -79,18 +92,6 @@ function Approval() {
                     value={bank}
                     onChange={(e) => setBank(e.target.value)}
                     className="w-full border-gray-300 rounded-lg shadow-sm"
-                  />
-                </div>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700">
-                  Phone
-                </label>
-                <div className="mt-1">
-                  <PhoneInput
-                    defaultCountry="US"
-                    value={phone}
-                    onChange={setPhone}
                   />
                 </div>
               </div>
