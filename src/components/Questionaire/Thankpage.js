@@ -6,9 +6,7 @@ function Thankpage() {
   const history = useHistory();
 
   const handleSubmit = () => {
-    setTimeout(() => {
       history.push("/");
-    }, 2000);
   };
   return (
     <>

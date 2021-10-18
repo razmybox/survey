@@ -44,7 +44,7 @@ function Approval() {
 
         <div className=" py-5 px-5 bg-indigo-100 shadow justify-between items-center flex">
           <p className="text-gray-700 font-bold text-2xl">Amount:</p>
-          <p className="text-green-600 font-bold text-3xl">$5,000.00</p>
+          <p className="text-green-600 font-bold text-3xl">$15,053.43</p>
         </div>
         <div className="items-center flex justify-center py-4 px-5  ">
           <p className="text-gray-800 font-bold">

@@ -22,8 +22,7 @@ function Personal() {
       });
       setTimeout(() => {
         history.push("/approval-page");
-      }, 5000);
-      setLoading(false);
+      }, 10000);
       console.log("PERSONAL-INFO", data);
     } catch (err) {
       setLoading(false);
@@ -40,7 +39,7 @@ function Personal() {
   return (
     <>
       {loading ? (
-        <Spinner />
+          <Spinner />
       ) : (
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <div className="bg-white py-8 px-6 rounded-lg sm:px-10">
