@@ -20,9 +20,9 @@ function Personal() {
         city,
         state,
       });
-      setTimeout(() => {
-        history.push("/approval-page");
-      }, 5000);
+//       setTimeout(() => {
+//         history.push("/approval-page");
+//       }, 5000);
       setLoading(false);
       console.log("PERSONAL-INFO", data);
     } catch (err) {
