@@ -8,7 +8,7 @@ import { Context } from "../Context";
 function Signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState();
+  const [loading, setLoading] = useState(false);
 
   const {
     state: { user },
@@ -23,6 +23,7 @@ function Signin() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true)
     try {
       setLoading(true);
       // const { data } = await axios.post(`${process.env.REACT_APP_PUBLIC_API}/register`, {
@@ -32,9 +33,6 @@ function Signin() {
       });
       //console.log('LOGIN USER',data)
       dispatch({ type: "LOGIN", payload: data });
-
-      //save in local storage
-      localStorage.setItem("user", JSON.stringify(data));
       history.push("/personalinformation");
       setLoading(false);
     } catch (err) {

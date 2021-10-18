@@ -54,6 +54,10 @@ function App() {
           <Thankpage />
         </Route>
 
+        <Route path="/spinner">
+          <Spinner />
+        </Route>
+
         <Route exact path="/">
           <InfoSec />
           <Card />
