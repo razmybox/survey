@@ -12,7 +12,7 @@ function Header() {
 
   const logout = async () => {
     dispatch({ type: "LOGOUT" });
-    window.localStorage.removeItem(" user ");
+    window.localStorage.removeItem("user");
     const { data } = await axios.post(`http://localhost:8000/api/logout`);
     toast(data.message);
     history.push("/signin");
