@@ -1,18 +1,32 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState} from "react";
 import Spinner from "./Spinner";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 function Form() {
   const history = useHistory();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false)
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoading(true);
-    history.push("/");
-    setTimeout(() => {
+  const handleSubmit = async(e) => {
+    e.prevenetDefault();
+    try{
+      const { data } = await axios.post(`http://localhost:8000/api/personal`, {
+        firstName,
+        lastName,
+        dob,
+        email,
+        street,
+        city,
+        state,
+      });
+      setTimeout(() => {
+        history.push("/approval-page");
+      }, 3000);
+      setLoading(false)
+      console.log('PERSONAL-INFO', data);
+    }catch(err){
       setLoading(false);
-    }, 5000);
+    }
   };
 
   const [firstName, setFirstName] = useState("");
@@ -23,157 +37,129 @@ function Form() {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   return (
-    
     <>
-      <div className="mt-5 md:mt-0 md:col-span-2">
-        <form onSubmit={handleSubmit}>
-          <div className="shadow overflow-hidden sm:rounded-md">
-            <div className="px-4 py-5 bg-white sm:p-6">
-              <div className="grid grid-cols-6 gap-6">
-                <div className="col-span-6 sm:col-span-3">
-                  <label className="block text-sm font-medium text-gray-700">
-                    First name
-                  </label>
+     <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+          <div className="bg-white py-8 px-6 rounded-lg sm:px-10">
+            <form onSubmit={handleSubmit} className="mb-0 space-y-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700">
+                  First Name
+                </label>
+                <div className="mt-1">
                   <input
+                    type="text"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
-                    type="text"
-                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                    className="w-full border-gray-300 rounded-lg shadow-sm"
                   />
                 </div>
+              </div>
 
-                <div className="col-span-6 sm:col-span-3">
-                  <label className="block text-sm font-medium text-gray-700">
-                    Last name
-                  </label>
+              <div>
+                <label className="block text-sm font-medium text-gray-700">
+                  Last Name
+                </label>
+                <div className="mt-1">
                   <input
+                    type="text"
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
-                    type="text"
-                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                    className="w-full border-gray-300 rounded-lg shadow-sm"
                   />
                 </div>
+              </div>
 
-                <div className="col-span-6 sm:col-span-4">
-                  <label className="block text-sm font-medium text-gray-700">
-                    Date of Birth
-                  </label>
+              <div>
+                <label className="block text-sm font-medium text-gray-700">
+                  Date of Birth
+                </label>
+                <div className="mt-1">
                   <input
+                    type="text"
                     value={dob}
                     onChange={(e) => setDob(e.target.value)}
-                    type="number"
-                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                    className="w-full border-gray-300 rounded-lg shadow-sm"
                   />
                 </div>
+              </div>
 
-                <div className="col-span-6 sm:col-span-4">
-                  <label className="block text-sm font-medium text-gray-700">
-                    Email address
-                  </label>
+              <div>
+                <label className="block text-sm font-medium text-gray-700">
+                  Email
+                </label>
+                <div className="mt-1">
                   <input
+                    type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    type="text"
-                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                    className="w-full border-gray-300 rounded-lg shadow-sm"
                   />
                 </div>
+              </div>
 
-                <div className="col-span-6">
-                  <label
-                    for="street_address"
-                    className="block text-sm font-medium text-gray-700"
-                  >
-                    Street address
-                  </label>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700">
+                    Street
+                </label>
+                <div className="mt-1">
                   <input
+                    type="text"
                     value={street}
                     onChange={(e) => setStreet(e.target.value)}
-                    type="text"
-                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                    className="w-full border-gray-300 rounded-lg shadow-sm"
                   />
                 </div>
+              </div>
 
-                <div className="col-span-6 sm:col-span-6 lg:col-span-2">
-                  <label className="block text-sm font-medium text-gray-700">
-                    City
-                  </label>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700">
+                  City
+                </label>
+                <div className="mt-1">
                   <input
+                    type="text"
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
-                    type="text"
-                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                    className="w-full border-gray-300 rounded-lg shadow-sm"
                   />
                 </div>
+              </div>
 
-                <div className="col-span-6 sm:col-span-3 lg:col-span-2">
-                  <label className="block text-sm font-medium text-gray-700">
-                    State / Province
-                  </label>
+
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700">
+                  State/Province
+                </label>
+                <div className="mt-1">
                   <input
+                    type="text"
                     value={state}
                     onChange={(e) => setState(e.target.value)}
-                    type="text"
-                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                  />
-                </div>
-
-                <div className="col-span-6 sm:col-span-3 lg:col-span-2">
-                  <label className="block text-sm font-medium text-gray-700">
-                    ZIP / Postal
-                  </label>
-                  <input
-                    type="text"
-                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                    className="w-full border-gray-300 rounded-lg shadow-sm"
                   />
                 </div>
               </div>
-            </div>
-            <div className="mt-5">
-              <button
-                disabled={
-                  !firstName || !lastName || !email || !dob || !state || loading
-                }
-                type="submit"
-                className="w-full flex justify-center mt-5 mb-5 py-5 px-4 border border-transparent rounded-md 
+              <div className="mt-5">
+                <button
+                  type="submit"
+                  className="w-full flex justify-center MT-5 py-2 px-4 border border-transparent rounded-md 
                   shadow-sm text-white text-sm font-medium bg-indigo-600 hover:bg-indigo-700
                    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-              >
-                Submit
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
-      <div className="text-gray-100 bg-gray-800">
-        <div className="max-w-3xl mx-auto py-6">
-          <hr className="h-px mt-6 bg-gray-700 border-none" />
-
-          <div className="flex flex-col items-center justify-center mt-6 md:flex-row">
-            <div className="flex mt-4 md:m-0">
-              <div className="-m-x4">
-                <a
-                  href="/"
-                  className="px-4 text-sm text-gray-100 font-medium hover:text-gray-400"
+                  disabled={!firstName || !street || !lastName || !state || !dob}
+                  
                 >
-                  faqs
-                </a>
-                <a
-                  href="/"
-                  className="px-4 text-sm text-gray-100 font-medium hover:text-gray-400"
-                >
-                  about
-                </a>
-                <a
-                  href="/"
-                  className="px-4 text-sm text-gray-100 font-medium hover:text-gray-400"
-                >
-                  contact
-                </a>
+                  {
+                    loading ? <Spinner /> : "Submit"
+                  }
+                </button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
-      </div>
+ 
     </>
   );
 }

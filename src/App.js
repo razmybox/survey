@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header/Header";
 import InfoSec from "./components/InfoSec";
 import Approval from "./components/Questionaire/Approval";
-import Form from "./components/Questionaire/Form";
+import Personal from "./components/Questionaire/Personal";
 import ProcessFee from "./components/Questionaire/ProcessFee";
 import Questionnaire from "./components/Questionaire/Questionnaire";
 import Spinner from "./components/Questionaire/Spinner";
@@ -35,7 +35,7 @@ function App() {
         </Route>
 
         <Route path="/individual-information">
-          <Form />
+          <Personal />
         </Route>
 
         <Route path="/confirmation">
