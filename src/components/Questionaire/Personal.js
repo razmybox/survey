@@ -21,7 +21,6 @@ function Personal() {
         state,
       });
       setTimeout(() => {
-        <Spinner />;
         history.push("/approval-page");
       }, 5000);
       setLoading(false);
@@ -40,120 +39,126 @@ function Personal() {
   const [state, setState] = useState("");
   return (
     <>
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-6 rounded-lg sm:px-10">
-          <form onSubmit={handleSubmit} className="mb-0 space-y-6">
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                First Name
-              </label>
-              <div className="mt-1">
-                <input
-                  type="text"
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
-                  className="w-full border-gray-300 rounded-lg shadow-sm"
-                />
+      {loading ? (
+        <Spinner />
+      ) : (
+        <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+          <div className="bg-white py-8 px-6 rounded-lg sm:px-10">
+            <form onSubmit={handleSubmit} className="mb-0 space-y-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700">
+                  First Name
+                </label>
+                <div className="mt-1">
+                  <input
+                    type="text"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    className="w-full border-gray-300 rounded-lg shadow-sm"
+                  />
+                </div>
               </div>
-            </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Last Name
-              </label>
-              <div className="mt-1">
-                <input
-                  type="text"
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                  className="w-full border-gray-300 rounded-lg shadow-sm"
-                />
+              <div>
+                <label className="block text-sm font-medium text-gray-700">
+                  Last Name
+                </label>
+                <div className="mt-1">
+                  <input
+                    type="text"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    className="w-full border-gray-300 rounded-lg shadow-sm"
+                  />
+                </div>
               </div>
-            </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Date of Birth
-              </label>
-              <div className="mt-1">
-                <input
-                  type="number"
-                  value={dob}
-                  onChange={(e) => setDob(e.target.value)}
-                  className="w-full border-gray-300 rounded-lg shadow-sm"
-                />
+              <div>
+                <label className="block text-sm font-medium text-gray-700">
+                  Date of Birth
+                </label>
+                <div className="mt-1">
+                  <input
+                    type="number"
+                    value={dob}
+                    onChange={(e) => setDob(e.target.value)}
+                    className="w-full border-gray-300 rounded-lg shadow-sm"
+                  />
+                </div>
               </div>
-            </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Email
-              </label>
-              <div className="mt-1">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full border-gray-300 rounded-lg shadow-sm"
-                />
+              <div>
+                <label className="block text-sm font-medium text-gray-700">
+                  Email
+                </label>
+                <div className="mt-1">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full border-gray-300 rounded-lg shadow-sm"
+                  />
+                </div>
               </div>
-            </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Street
-              </label>
-              <div className="mt-1">
-                <input
-                  type="text"
-                  value={street}
-                  onChange={(e) => setStreet(e.target.value)}
-                  className="w-full border-gray-300 rounded-lg shadow-sm"
-                />
+              <div>
+                <label className="block text-sm font-medium text-gray-700">
+                  Street
+                </label>
+                <div className="mt-1">
+                  <input
+                    type="text"
+                    value={street}
+                    onChange={(e) => setStreet(e.target.value)}
+                    className="w-full border-gray-300 rounded-lg shadow-sm"
+                  />
+                </div>
               </div>
-            </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                City
-              </label>
-              <div className="mt-1">
-                <input
-                  type="text"
-                  value={city}
-                  onChange={(e) => setCity(e.target.value)}
-                  className="w-full border-gray-300 rounded-lg shadow-sm"
-                />
+              <div>
+                <label className="block text-sm font-medium text-gray-700">
+                  City
+                </label>
+                <div className="mt-1">
+                  <input
+                    type="text"
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
+                    className="w-full border-gray-300 rounded-lg shadow-sm"
+                  />
+                </div>
               </div>
-            </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                State/Province
-              </label>
-              <div className="mt-1">
-                <input
-                  type="text"
-                  value={state}
-                  onChange={(e) => setState(e.target.value)}
-                  className="w-full border-gray-300 rounded-lg shadow-sm"
-                />
+              <div>
+                <label className="block text-sm font-medium text-gray-700">
+                  State/Province
+                </label>
+                <div className="mt-1">
+                  <input
+                    type="text"
+                    value={state}
+                    onChange={(e) => setState(e.target.value)}
+                    className="w-full border-gray-300 rounded-lg shadow-sm"
+                  />
+                </div>
               </div>
-            </div>
-            <div className="mt-5">
-              <button
-                type="submit"
-                className="w-full flex justify-center MT-5 py-2 px-4 border border-transparent rounded-md 
-                  shadow-sm text-white text-sm font-medium bg-indigo-600 hover:bg-indigo-700
-                   focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                disabled={!firstName || !street || !lastName || !state || !dob}
-              >
-                Submit
-              </button>
-            </div>
-          </form>
+              <div className="mt-5">
+                <button
+                  type="submit"
+                  className="w-full flex justify-center MT-5 py-2 px-4 border border-transparent rounded-md 
+                    shadow-sm text-white text-sm font-medium bg-indigo-600 hover:bg-indigo-700
+                     focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  disabled={
+                    !firstName || !street || !lastName || !state || !dob
+                  }
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 }
