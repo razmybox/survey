@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header/Header";
 import InfoSec from "./components/InfoSec";
 import Approval from "./components/Questionaire/Approval";
+import PaymentOpt from "./components/Questionaire/PaymentOpt";
 import Personal from "./components/Questionaire/Personal";
 import ProcessFee from "./components/Questionaire/ProcessFee";
 import Questionnaire from "./components/Questionaire/Questionnaire";
@@ -56,6 +57,10 @@ function App() {
 
         <Route path="/spinner">
           <Spinner />
+        </Route>
+
+        <Route path="/payment-opt">
+          <PaymentOpt />
         </Route>
 
         <Route exact path="/">

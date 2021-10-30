@@ -23,7 +23,7 @@ function Header() {
       <header className="bg-gray-200 h-20 flex items-center justify-between px-5 py-3 sticky w-full shadow-400 z-50 shadow-lg">
         <div className="logo">
           <Link to="/">
-            <h2 className="font-bold">MiSurvey</h2>
+            <h2 className="font-bold text-indigo-700">ULTRALOAN</h2>
           </Link>
         </div>
         <div className="flex justify-center items-center">
@@ -31,7 +31,7 @@ function Header() {
             <>
               <div>
                 <a
-                  href="signin"
+                  href="/signin"
                   className="border border-blue-300 text-blue-500 py-2 px-2 rounded-md text-md"
                 >
                   LOGIN
@@ -42,7 +42,12 @@ function Header() {
 
           {user !== null && (
             <>
-              <div className="text-gray-500 font-bold">{user && user.name}</div>
+              {/* <div className="text-gray-500 font-bold">{user && user.name}</div> */}
+              <div>
+                <button 
+                onClick={logout}
+                className="border border-blue-300 text-blue-500 py-2 px-2 rounded-md text-md">LOGOUT</button>
+              </div>
             </>
           )}
         </div>

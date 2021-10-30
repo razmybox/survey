@@ -23,7 +23,7 @@ function Signin() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true)
+    setLoading(true);
     try {
       setLoading(true);
       // const { data } = await axios.post(`${process.env.REACT_APP_PUBLIC_API}/register`, {
@@ -106,17 +106,10 @@ function Signin() {
         <div className="bg-gray-200 w-full flex justify-center items-center py-5">
           <div className="w-60 bg-white p-2 rounded-xl">
             <img
-              src="/images/picture1.png"
+              src="/images/download.jpg"
               alt=""
               className="h-40 object-cover rounded-xl"
             />
-            <div className="p-2">
-              <h2 className="font-bold text-lg">Heading</h2>
-              <p className="text-sm text-gray-600">
-                Lorem ipsum is a name for a common type of placeholder text.
-                Also known as filler or dummy text,
-              </p>
-            </div>
           </div>
         </div>
       </div>

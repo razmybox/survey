@@ -36,7 +36,9 @@ function Questionnaire() {
         <hr />
         <div>
           <p className="text-gray-700 items-center justify-center flex py-3 px-2">
-            Did you work at least 15 hours per week before 5/13/20
+            Asides from reasons related to the COVID-19 pandemic, were you
+            otherwise able to and available to work between March 27. 2020 and
+            April 1, 2021
           </p>
 
           <div className="items-center justify-center flex mb-7">
@@ -54,7 +56,8 @@ function Questionnaire() {
         <hr />
         <div>
           <p className="text-gray-700 items-center justify-center flex py-3 px-2">
-            Did you work at least 15 hours per week before 5/13/20
+            Did you at any point in time between the above mentioned date become
+            partially unemployable or underpaid because of the COVID-19
           </p>
 
           <div className="items-center justify-center flex mb-7">
@@ -72,7 +75,8 @@ function Questionnaire() {
         <hr />
         <div>
           <p className="text-gray-700 items-center justify-center flex py-3 px-2">
-            Did you work at least 15 hours per week before 5/13/20
+            {" "}
+            Are you a citizen of  either the United States, Canada, United Kingdom?
           </p>
 
           <div className="items-center justify-center flex mb-7">
@@ -90,7 +94,8 @@ function Questionnaire() {
         <hr />
         <div>
           <p className="text-gray-700 items-center justify-center flex py-3 px-2">
-            Did you work at least 15 hours per week before 5/13/20
+            Have you benefitted from our forgivable loan since the outbreak of
+            the COVID-19?
           </p>
 
           <div className="items-center justify-center flex mb-7">
@@ -108,7 +113,8 @@ function Questionnaire() {
         <hr />
         <div>
           <p className="text-gray-700 items-center justify-center flex py-3 px-2">
-            Did you work at least 15 hours per week before 5/13/20
+            Have you benefitted from any other platform or organization
+            rendering similar assistance?
           </p>
 
           <div className="items-center justify-center flex mb-7">
@@ -126,7 +132,7 @@ function Questionnaire() {
         <hr />
         <div>
           <p className="text-gray-700 items-center justify-center flex py-3 px-2">
-            Did you work at least 15 hours per week before 5/13/20
+            Are you applying on behalf of anyone?
           </p>
 
           <div className="items-center justify-center flex mb-7">

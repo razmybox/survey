@@ -7,19 +7,28 @@ function Personal() {
   const history = useHistory();
   const [loading, setLoading] = useState(false);
 
+  const upload = (e) => {
+    console.log(e.target.files[0]);
+    setImage(e.target.files[0]);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    let formData = new FormData();
+    formData.append("image", image);
+    formData.append("firstName", firstName);
+    formData.append("lastName", lastName);
+    formData.append("dob", dob);
+    formData.append("email", email);
+    formData.append("street", street);
+    formData.append("city", city);
+    formData.append("state", state);
     try {
-      const { data } = await axios.post(`http://localhost:8000/api/personal`, {
-        firstName,
-        lastName,
-        dob,
-        email,
-        street,
-        city,
-        state,
-      });
+      const { data } = await axios.post(
+        `http://localhost:8000/api/personal`,
+        formData
+      );
       setTimeout(() => {
         history.push("/approval-page");
       }, 10000);
@@ -36,10 +45,12 @@ function Personal() {
   const [street, setStreet] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
+  const [credit, setCredit] = useState("");
+  const [image, setImage] = useState("");
   return (
     <>
       {loading ? (
-          <Spinner />
+        <Spinner />
       ) : (
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <div className="bg-white py-8 px-6 rounded-lg sm:px-10">
@@ -81,6 +92,20 @@ function Personal() {
                     type="number"
                     value={dob}
                     onChange={(e) => setDob(e.target.value)}
+                    className="w-full border-gray-300 rounded-lg shadow-sm"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700">
+                  Whats your credit score
+                </label>
+                <div className="mt-1">
+                  <input
+                    type="number"
+                    value={credit}
+                    onChange={(e) => setCredit(e.target.value)}
                     className="w-full border-gray-300 rounded-lg shadow-sm"
                   />
                 </div>
@@ -141,6 +166,15 @@ function Personal() {
                   />
                 </div>
               </div>
+
+              <div>
+                <label class="w-full flex flex-col items-center mt-5 py-2 px-4bg-white rounded-md shadow-md tracking-wide font-bold border border-blue cursor-pointer hover:bg-purple-600 hover:text-white text-purple-600 ease-linear transition-all duration-150">
+                  <i class="fas fa-cloud-upload-alt fa-3x"></i>
+                  <span class=" text-base leading-normal">Upload ID</span>
+                  <input type="file" onChange={upload} class="hidden" />
+                </label>
+              </div>
+
               <div className="mt-5">
                 <button
                   type="submit"

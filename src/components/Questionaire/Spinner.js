@@ -9,7 +9,7 @@ function Spinner() {
         </div>
 
         <div className="flex justify-center items-center py-4">
-          <h1 className="text-2xl text-gray-700">Submitting your survey...</h1>
+          <h1 className="text-2xl text-gray-700">Submitting your Application...</h1>
         </div>
       </div>
     </>
