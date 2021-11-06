@@ -12,7 +12,7 @@ function FetchPersonnals() {
   const fetchPersonnals = async () => {
     try {
         const  response = await axios.get(
-          `http://localhost:8000/api/fetch-personal`,
+          'http://localhost:8000/api/fetch-personal',
         );
         setpersonnals(response.data.personnals); 
         console.log(response.data.personnals);

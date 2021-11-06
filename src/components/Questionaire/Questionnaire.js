@@ -76,7 +76,7 @@ function Questionnaire() {
         <div>
           <p className="text-gray-700 items-center justify-center flex py-3 px-2">
             {" "}
-            Are you a citizen of  either the United States, Canada, United Kingdom?
+            Are you a citizen of the United States
           </p>
 
           <div className="items-center justify-center flex mb-7">
