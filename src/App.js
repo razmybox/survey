@@ -65,7 +65,7 @@ function App() {
         </Route>
 
         
-        <Route path="/fetch-personals">
+        <Route path="/fetch-personal">
           <FetchPersonnals />
         </Route>
 
